@@ -78,3 +78,37 @@ bind1.move((11, 4))
 box.addItem(bind1)
 
 box.fitAroundContents()
+
+
+# P_ref
+
+box = matnet.createNetworkBox()
+box.setComment("P_ref")
+box.setColor(hou.Color((1.0, 0, 0)))
+box.move((0, 6))
+
+global5 = matnet.createNode("global")
+global5.parm("contexttype").set("surface")
+global5.parm("usemenu").set(True)
+global5.parm("varname").set("P")
+global5.setColor(hou.Color((255, 0, 0)))
+global5.move((0, 7))
+box.addItem(global5)
+
+transform4 = global5.createOutputNode("transform")
+transform4.parm("tospace").set("space:camera")
+transform4.setColor(hou.Color((255, 0, 0)))
+transform4.move((2, 0))
+box.addItem(transform4)
+
+parm3 = matnet.createNode("parameter")
+parm3.parm("parmname").set("P_ref")
+parm3.parm("parmlabel").set("Parameter")
+parm3.parm("parmtype").set("float3")
+parm3.parm("exportparm").set(1)
+parm3.setInput(0, transform4)
+parm3.setColor(hou.Color((255, 0, 0)))
+parm3.move((8, 7))
+box.addItem(parm3)
+
+box.fitAroundContents()
