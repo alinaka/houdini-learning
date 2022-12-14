@@ -1,0 +1,51 @@
+{
+  "extraImagePlanes": [
+    {
+      "variable": "motion_vector",
+      "vex_type": "vector",
+      "channel": "_motion_vector",
+      "quantize": "float",
+      "sfilter": "alpha",
+      "pfilter": "minmax_omin"
+    },
+    {
+      "variable": "P_world",
+      "vex_type": "vector",
+      "channel": "_Pworld",
+      "quantize": "float",
+      "sfilter": "alpha",
+      "pfilter": "omedian"
+    },
+    {
+      "variable": "P_object",
+      "vex_type": "vector",
+      "channel": "_Pobject",
+      "quantize": "half",
+      "sfilter": "alpha"
+    },
+    {
+      "variable": "P_ref",
+      "vex_type": "vector",
+      "channel": "_Pref",
+      "quantize": "float",
+      "sfilter": "alpha",
+      "pfilter": "minmax omedian"
+    },
+    {
+      "variable": "Pz",
+      "vex_type": "float",
+      "channel": "_depth",
+      "quantize": "float",
+      "sfilter": "alpha",
+      "pfilter": "minmax omedian"
+    },
+    {
+      "variable": "N",
+      "vex_type": "vector",
+      "channel": "_normal",
+      "quantize": "float",
+      "sfilter": "alpha",
+      "pfilter": "minmax omedian"
+    }
+  ]
+}
