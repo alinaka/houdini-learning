@@ -205,3 +205,26 @@ bind0.setNamedInput("input", multiply0, "product")
 box.addItem(bind0)
 
 box.fitAroundContents()
+
+# UV
+
+box = matnet.createNetworkBox()
+box.setComment("UV_pass")
+box.setColor(hou.Color((1.0, 0, 0)))
+box.move((0, -8.25))
+
+uvcoords = matnet.createNode("uvcoords")
+uvcoords.move((0, -8.25))
+box.addItem(uvcoords)
+
+bind0 = matnet.createNode("bind")
+bind0.move((2.5, -8.25))
+bind0.parm("parmname").set("uv_pass")
+bind0.parm("parmtype").set("float")
+bind0.parm("overridetype").set(True)
+bind0.parm("useasparmdefiner").set(1)
+bind0.parm("exportparm").set(2)
+bind0.setNamedInput("input", uvcoords, "uv")
+box.addItem(bind0)
+
+box.fitAroundContents()
